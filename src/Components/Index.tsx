@@ -1,11 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '../Styles/Landing.css'
-import Landing from './Landing.tsx'
+import '../Styles/Index.css'
+import Header from './Header.tsx'
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <Landing />
+    <div className="appContainer">
+      <Header />
+    </div>
   </StrictMode>,
 )
