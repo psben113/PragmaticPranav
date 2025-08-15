@@ -1,4 +1,4 @@
-name: Run unit tests
+name: Check for appropriate test coverage and run unit tests.
 
 on:
   pull_request:
@@ -19,5 +19,5 @@ jobs:
 
       - name: Run coverage
         run: yarn coverage
-      - name: Run tests
+      - name: Run unit tests
         run: yarn test
