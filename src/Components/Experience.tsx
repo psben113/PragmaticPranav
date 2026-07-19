@@ -18,7 +18,7 @@ const experiences: Experience[] = [
         title: 'Senior Associate Quality Engineer',
         company: 'MathWorks',
         location: 'Natick, MA',
-        period: 'May 2022 – Present',
+        period: 'May 2022 - Present',
         bullets: [
             'Developed an autoscheduler to enhance the performance of the Convolution and NPSS Blocks in Simulink, achieving a 20% improvement in loop nest execution speed by leveraging CGIR and MLIR models.',
             'Continued maintenance of Embedded Coder products by ensuring robust features are shipped to high profile clients like NASA and Bose.',
@@ -36,7 +36,7 @@ const experiences: Experience[] = [
         title: 'Systems Engineer',
         company: 'Charter Communications',
         location: 'Greenwood Village, CO',
-        period: 'October 2021 – May 2022',
+        period: 'October 2021 - May 2022',
         bullets: [
             'Designed access control lists for hub routers at 10 new locations where Charter Communications expanded their network.',
             'Configured and deployed 20 Sandvine policy traffic switches at various locations across the US to combat piracy activity on Charter networks.',
@@ -49,9 +49,9 @@ const experiences: Experience[] = [
         title: 'Full Stack Developer',
         company: 'Showingly',
         location: 'Denver, CO',
-        period: 'October 2020 – October 2021',
+        period: 'October 2020 - October 2021',
         bullets: [
-            'Senior developer for 2 web applications utilizing a MERN stack; seamlessly incorporated AWS Lambda functions for backend operations.',
+            'Founding developer for 2 web applications utilizing a MERN stack; seamlessly incorporated AWS Lambda functions for backend operations.',
             'Gained expertise in Redux DevTools to debug application state changes.',
             'Mentored 2 other engineers and guided them to build several web pages for Showingly products.',
         ],
