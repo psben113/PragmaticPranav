@@ -1,0 +1,117 @@
+.skills {
+  padding: 96px 0 3rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skillsContainer {
+  width: 100%;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.skillCategory {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 7px;
+  padding: 24px 20px;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.skillCategory:hover {
+  border-color: var(--mint);
+  box-shadow: 0 0 18px rgba(0, 255, 148, 0.12);
+  transform: translateY(-2px);
+}
+
+.skillCategoryTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mint);
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.skillTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.skillTag {
+  background: var(--mint-faint);
+  color: var(--mint-alt);
+  font-family: var(--font);
+  font-size: 1.1rem;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid rgba(89, 255, 185, 0.2);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.skillTag:hover {
+  background: rgba(89, 255, 185, 0.15);
+  border-color: var(--mint-alt);
+}
+
+.educationBlock {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.educationContent {
+  display: inline-flex;
+  align-items: center;
+}
+
+.educationLogo {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.educationDegree {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 6px;
+  text-align: left;
+}
+
+.educationSchool {
+  font-size: 1.3rem;
+  color: var(--text-dim);
+  font-weight: 300;
+  margin: 0;
+  text-align: left;
+}
+
+@media (max-width: 480px) {
+  .educationContent {
+    flex-direction: column;
+  }
+
+  .educationDegree,
+  .educationSchool {
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills {
+    padding: 64px 16px;
+  }
+}

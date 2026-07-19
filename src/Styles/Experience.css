@@ -1,0 +1,193 @@
+.experience {
+  padding: 96px 0 7rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experienceContainer {
+  width: 100%;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--mint), transparent);
+}
+
+.timelineItem {
+  position: relative;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineDot {
+  position: absolute;
+  left: -32px;
+  top: 20px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand, var(--mint));
+  border: 2px solid var(--bg);
+  /* box-shadow: 0 0 8px var(--brand, var(--mint)); */
+  z-index: 1;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.timelineDot.active {
+  transform: scale(1.6);
+}
+
+.timelineCard {
+  background: color-mix(in srgb, var(--brand, transparent) 8%, var(--bg-card));
+  border: 2px solid var(--border);
+  border-left: 3px solid var(--brand, var(--mint));
+  border-radius: 7px;
+  padding: 24px 28px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.timelineCard:hover {
+  border-color: var(--brand, var(--mint));
+  box-shadow: 0 0 20px color-mix(in srgb, var(--brand, var(--mint)) 20%, transparent);
+  transform: translateY(-2px);
+}
+
+.timelineCard.active {
+  border-color: var(--brand, var(--mint));
+  transform: scale(1.02);
+}
+
+.timelineHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.timelineHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+}
+
+.companyLogo,
+.companyLogoFallback {
+  width: 52px;
+  height: 52px;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+
+.companyLogo {
+  object-fit: contain;
+}
+
+.companyLogoFallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  font-size: 2.2rem;
+  font-weight: 700;
+  border: none;
+}
+
+.timelineRole {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.timelineCompany {
+  font-size: 1.3rem;
+  color: color-mix(in srgb, var(--brand, var(--mint)) 60%, white);
+  font-weight: 400;
+  margin: 4px 0 0;
+}
+
+.timelineLocation {
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.timelinePeriod {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  padding-top: 4px;
+  font-weight: 300;
+}
+
+.timelineBullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timelineBullets li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.timelineBullets li:last-child {
+  margin-bottom: 0;
+}
+
+.timelineBullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--brand, var(--mint));
+}
+
+@media (max-width: 640px) {
+  .timelineHeader {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .timelineHeaderLeft {
+    gap: 12px;
+  }
+
+  .companyLogo,
+  .companyLogoFallback {
+    width: 44px;
+    height: 44px;
+  }
+
+  .timelineCard {
+    padding: 20px;
+  }
+
+  .experience {
+    padding: 64px 16px;
+  }
+}

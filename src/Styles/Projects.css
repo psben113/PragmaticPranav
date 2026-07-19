@@ -1,0 +1,126 @@
+.projects {
+  padding: 96px 0 7rem;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.projectsContainer {
+  width: 100%;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.projectCard {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 7px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.projectCard:hover {
+  border-color: var(--mint);
+  box-shadow: 0 0 24px rgba(0, 255, 148, 0.1);
+  transform: translateY(-3px);
+}
+
+.projectCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.projectName {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.projectStatus {
+  font-family: var(--font);
+  font-size: 1rem;
+  padding: 3px 10px;
+  background: var(--mint-faint);
+  color: var(--mint-alt);
+  border: 1px solid rgba(89, 255, 185, 0.3);
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.projectOrg {
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  margin: 0 0 16px;
+  font-weight: 300;
+}
+
+.projectDescription {
+  font-size: 1.35rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin: 0 0 16px;
+  font-weight: 300;
+  flex: 1;
+}
+
+.projectHighlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.projectHighlights li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  font-weight: 300;
+}
+
+.projectHighlights li:last-child {
+  margin-bottom: 0;
+}
+
+.projectHighlights li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--mint);
+}
+
+.projectLink {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--font);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--mint);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--mint);
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.projectLink:hover {
+  color: var(--mint-alt);
+  border-color: var(--mint-alt);
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .projectsGrid   { grid-template-columns: 1fr; }
+  .projects       { padding: 64px 16px; }
+}

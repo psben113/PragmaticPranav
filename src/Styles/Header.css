@@ -1,21 +1,75 @@
-.root {
-    border: 2px solid #333;
-    background-color: whitesmoke;
-    /* Creates a flexbox container. All elements inside will default to same height and same row*/
-    display: flex;
-    /* align items towards the end on X axis*/
-    justify-content: flex-end;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(17, 17, 17, 0.6);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid var(--border);
 }
 
-.headerButton {
-    border-radius: 5px;
-    /* text-color: */
-    color: #333;
-    font-weight: bold;
-    background-color: lightblue;
-    /* box-shadow: 2px 2px 5px lightblue; */
-    min-width: 200px;
-    height: 30px;
-    margin: 10px;
-    cursor: pointer;
+.headerNav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 0 24px;
+  height: 64px;
+  gap: 8px;
+}
+
+.headerLink {
+  font-family: var(--font);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 6px 14px;
+  position: relative;
+  transition: color 0.15s ease-in-out;
+  letter-spacing: 1px;
+}
+
+.headerLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--mint);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+  border-radius: 1px;
+}
+
+.headerLink:hover {
+  color: var(--mint);
+}
+
+.headerLink:hover::after {
+  transform: scaleX(1);
+}
+
+.navBracket {
+  color: var(--mint);
+  font-weight: 400;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.headerLink:hover .navBracket {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .headerLink {
+    padding: 12px 16px;
+    font-size: 1.5rem;
+  }
+
+  .headerLink::after {
+    display: none;
+  }
 }

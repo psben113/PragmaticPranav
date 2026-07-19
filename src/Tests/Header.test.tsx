@@ -4,13 +4,16 @@ import { render, screen } from "@testing-library/react"
 import Header from '../Components/Header'
 
 describe('Header tests', () => {
-    it('Should render header with 3 buttons', () => {
+    it('Should render header with navigation links', () => {
         render(<Header />)
-        const projectsButton = screen.getByText(/Projects/);
-        const skillsButton = screen.getByText(/Skills/);
-        const aboutMeButton = screen.getByText(/About Me/);
-        expect(projectsButton).toBeInTheDocument();
-        expect(skillsButton).toBeInTheDocument();
-        expect(aboutMeButton).toBeInTheDocument();
+        expect(screen.getByText('Experience')).toBeInTheDocument();
+        expect(screen.getByText('Projects')).toBeInTheDocument();
+        expect(screen.getByText('Skills')).toBeInTheDocument();
+        expect(screen.getByText('Contact')).toBeInTheDocument();
+    })
+
+    it('Should render the logo', () => {
+        render(<Header />)
+        expect(screen.getByText('PB')).toBeInTheDocument();
     })
 })

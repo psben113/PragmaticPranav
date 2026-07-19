@@ -1,0 +1,333 @@
+/* ── Hero section ── */
+.heroSection {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--bg);
+    padding: 100px 0 7rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* two-column flex */
+.heroContainer {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+}
+
+.heroLeft {
+    flex: 1;
+    min-width: 0;
+}
+
+.heroRight {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+}
+
+/* ── Left column text ── */
+.heroAvatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--mint);
+    box-shadow: 0 0 16px rgba(0, 255, 148, 0.2);
+    display: block;
+}
+
+.heroName {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 6rem;
+    font-weight: 400;
+    color: var(--mint);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0 0 16px;
+}
+
+.heroGreeting {
+    font-size: 2rem;
+    color: var(--text-dim);
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+.heroTitle {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--mint-alt);
+    margin: 0 0 24px;
+    letter-spacing: 2px;
+    min-height: 3rem;
+}
+
+.heroCursor {
+    color: var(--mint);
+    animation: blink 0.4s step-end infinite;
+    margin-left: 2px;
+}
+
+.heroSummary {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+    margin: 0 0 28px;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.heroLinks {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+.heroLink {
+    color: var(--mint-dim);
+    text-decoration: none;
+    font-size: 1.4rem;
+    position: relative;
+    transition: color 0.15s;
+}
+
+.heroLink::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--mint);
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.heroLink:hover {
+    color: var(--mint);
+}
+
+.heroLink:hover::after {
+    transform: scaleX(1);
+}
+
+.heroDivider {
+    color: var(--border);
+}
+
+.heroActions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.heroCta {
+    position: relative;
+    padding: 1.2rem 3.2rem;
+    font-family: var(--font);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000;
+    background: var(--mint);
+    border: 2px solid var(--mint);
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    overflow: hidden;
+}
+
+.heroCta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--mint);
+    filter: blur(30px);
+    opacity: 0;
+    transition: opacity 0.2s;
+    z-index: -1;
+}
+
+.heroCta:hover::before {
+    opacity: 0.6;
+}
+
+.heroCta:hover {
+    transform: translateY(-2px);
+}
+
+.heroCtaOutline {
+    padding: 1.2rem 3.2rem;
+    font-family: var(--font);
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--mint);
+    background: transparent;
+    border: 2px dashed var(--mint);
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.heroCtaOutline:hover {
+    background: var(--mint-faint);
+    transform: translateY(-2px);
+}
+
+/* ── Right column: terminal illustration ── */
+.heroRight {
+    position: relative;
+}
+
+.heroBg {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--mint-dim);
+    filter: blur(120px);
+    opacity: 0.15;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.heroTerminal {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 420px;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 255, 148, 0.08);
+}
+
+.terminalBar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+}
+
+.termDot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.termRed {
+    background: #ff5f57;
+}
+
+.termYellow {
+    background: #febc2e;
+}
+
+.termGreen {
+    background: #28c840;
+}
+
+.termTitle {
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    margin-left: 8px;
+    letter-spacing: 1px;
+}
+
+.terminalBody {
+    padding: 20px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.termLine {
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.termPrompt {
+    color: var(--mint);
+    font-weight: 700;
+}
+
+.termCmd {
+    color: #fff;
+}
+
+.termOut {
+    color: var(--text-dim);
+    padding-left: 16px;
+    margin-top: 2px;
+}
+
+.termCursor {
+    color: var(--mint);
+    font-size: 1.4rem;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 992px) {
+    .heroContainer {
+        flex-direction: column;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    .heroLinks,
+    .heroActions {
+        justify-content: center;
+    }
+
+    .heroName {
+        font-size: 4.5rem;
+    }
+
+    .heroTerminal {
+        max-width: 360px;
+    }
+}
+
+@media (min-width: 992px) {
+    .heroName {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .heroName {
+        font-size: 3rem;
+    }
+
+    .heroGreeting {
+        font-size: 1.4rem;
+    }
+
+    .heroSection {
+        padding: 88px 0 5rem;
+    }
+}
