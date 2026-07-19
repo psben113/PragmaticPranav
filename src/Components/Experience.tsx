@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useState, type CSSProperties, type ReactNode } from 'react';
 import '../Styles/Experience.css';
 
 type Experience = {
@@ -9,6 +9,8 @@ type Experience = {
     bullets: string[];
     logo: string;
     color: string;
+    url: string;
+    bulletLinks?: Record<string, string>;
 };
 
 const experiences: Experience[] = [
@@ -25,6 +27,10 @@ const experiences: Experience[] = [
         ],
         logo: 'https://img.logo.dev/mathworks.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=128&retina=true&format=png&theme=dark',
         color: '#E37222',
+        url: 'https://www.mathworks.com/',
+        bulletLinks: {
+            'Embedded Coder': 'https://www.mathworks.com/help/ecoder/index.html',
+        },
     },
     {
         title: 'Systems Engineer',
@@ -37,6 +43,7 @@ const experiences: Experience[] = [
         ],
         logo: 'https://img.logo.dev/spectrum.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=128&retina=true&format=png&theme=dark',
         color: '#003B71',
+        url: 'https://www.spectrum.com/',
     },
     {
         title: 'Full Stack Developer',
@@ -50,8 +57,52 @@ const experiences: Experience[] = [
         ],
         logo: 'https://img.logo.dev/showingly.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=128&retina=true&format=png&theme=dark',
         color: '#FF6B6B',
+        url: 'https://www.showingly.com/',
     },
 ];
+
+function renderBullet(text: string, links?: Record<string, string>): ReactNode {
+    if (!links) return text;
+    const phrases = Object.keys(links);
+    if (phrases.length === 0) return text;
+
+    const parts: ReactNode[] = [];
+    let remaining = text;
+    let key = 0;
+
+    while (remaining.length > 0) {
+        let earliestIdx = -1;
+        let earliestPhrase = '';
+
+        for (const phrase of phrases) {
+            const idx = remaining.indexOf(phrase);
+            if (idx !== -1 && (earliestIdx === -1 || idx < earliestIdx)) {
+                earliestIdx = idx;
+                earliestPhrase = phrase;
+            }
+        }
+
+        if (earliestIdx === -1) { parts.push(remaining); break; }
+        if (earliestIdx > 0) parts.push(remaining.substring(0, earliestIdx));
+
+        parts.push(
+            <a
+                key={key++}
+                href={links[earliestPhrase]}
+                className="bulletLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={e => e.stopPropagation()}
+            >
+                {earliestPhrase}
+            </a>
+        );
+
+        remaining = remaining.substring(earliestIdx + earliestPhrase.length);
+    }
+
+    return parts;
+}
 
 function CompanyLogo({ src, name, color }: { src: string; name: string; color: string }) {
     const [errored, setErrored] = useState(false);
@@ -106,7 +157,15 @@ function Experience() {
                                             <div>
                                                 <h3 className="timelineRole">{exp.title}</h3>
                                                 <p className="timelineCompany">
-                                                    {exp.company}{' '}
+                                                    <a
+                                                        href={exp.url}
+                                                        className="companyLink"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        onClick={e => e.stopPropagation()}
+                                                    >
+                                                        {exp.company}
+                                                    </a>{' '}
                                                     <span className="timelineLocation">· {exp.location}</span>
                                                 </p>
                                             </div>
@@ -115,7 +174,7 @@ function Experience() {
                                     </div>
                                     <ul className="timelineBullets">
                                         {exp.bullets.map((bullet, i) => (
-                                            <li key={i}>{bullet}</li>
+                                            <li key={i}>{renderBullet(bullet, exp.bulletLinks)}</li>
                                         ))}
                                     </ul>
                                 </div>
