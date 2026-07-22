@@ -102,6 +102,12 @@
   object-fit: contain;
 }
 
+.companyLogoLight {
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 7px;
+}
+
 .companyLogoFallback {
   display: flex;
   align-items: center;

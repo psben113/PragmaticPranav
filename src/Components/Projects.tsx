@@ -7,9 +7,23 @@ type Project = {
     description: string;
     highlights: string[];
     link?: string;
+    logo?: string;
 };
 
 const projects: Project[] = [
+    {
+        title: 'Judgy Calculator',
+        org: 'Chrome Extension',
+        status: 'Open Source',
+        description:
+            'A calculator that lives in your toolbar. Blue sky, drifting clouds, critters crossing the grass, and a sun that watches what you type. Use it for real math and all is peaceful. Use it for 5 × 5 and the sun laughs at you, mocks you in a speech bubble, and the whole world briefly falls into night.',
+        highlights: [
+            'Sun reacts to your math — mocks trivial operations, praises serious ones',
+            'Built with React 19 + TypeScript + Vite (Manifest V3, no permissions, no eval)',
+            'Full test suite: unit, property, component, and E2E tests against real headless Chrome',
+        ],
+        logo: '/judgy-calculator.png',
+    },
     {
         title: 'SimpleRAG',
         org: 'Personal Project',
@@ -45,6 +59,12 @@ function Projects() {
                 <div className="projectsGrid">
                     {projects.map((project, index) => (
                         <div className="projectCard" key={index}>
+                            {project.logo && (
+                                <div
+                                    className="projectCardBg"
+                                    style={{ backgroundImage: `url(${project.logo})` }}
+                                />
+                            )}
                             <div className="projectCardHeader">
                                 <h3 className="projectName">{project.title}</h3>
                                 <span className="projectStatus">{project.status}</span>

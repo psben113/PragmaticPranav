@@ -8,6 +8,7 @@ type Experience = {
     period: string;
     bullets: string[];
     logo: string;
+    logoLightBg?: boolean;
     color: string;
     url: string;
     bulletLinks?: Record<string, string>;
@@ -55,8 +56,9 @@ const experiences: Experience[] = [
             'Gained expertise in Redux DevTools to debug application state changes.',
             'Mentored 2 other engineers and guided them to build several web pages for Showingly products.',
         ],
-        logo: 'https://img.logo.dev/showingly.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=128&retina=true&format=png&theme=dark',
-        color: '#FF6B6B',
+        logo: 'https://www.showingly.com/brand/showingly-logo-blue.svg',
+        logoLightBg: true,
+        color: '#5DBD77',
         url: 'https://www.showingly.com/',
     },
 ];
@@ -104,7 +106,7 @@ function renderBullet(text: string, links?: Record<string, string>): ReactNode {
     return parts;
 }
 
-function CompanyLogo({ src, name, color }: { src: string; name: string; color: string }) {
+function CompanyLogo({ src, name, color, lightBg }: { src: string; name: string; color: string; lightBg?: boolean }) {
     const [errored, setErrored] = useState(false);
 
     if (errored) {
@@ -119,7 +121,7 @@ function CompanyLogo({ src, name, color }: { src: string; name: string; color: s
         <img
             src={src}
             alt={`${name} logo`}
-            className="companyLogo"
+            className={`companyLogo${lightBg ? ' companyLogoLight' : ''}`}
             onError={() => setErrored(true)}
         />
     );
@@ -153,6 +155,7 @@ function Experience() {
                                                 src={exp.logo}
                                                 name={exp.company}
                                                 color={exp.color}
+                                                lightBg={exp.logoLightBg}
                                             />
                                             <div>
                                                 <h3 className="timelineRole">{exp.title}</h3>
