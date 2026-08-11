@@ -8,6 +8,7 @@ type Project = {
     highlights: string[];
     link?: string;
     logo?: string;
+    linkText?: string;
 };
 
 const projects: Project[] = [
@@ -18,24 +19,26 @@ const projects: Project[] = [
         description:
             'A calculator that lives in your toolbar. Blue sky, drifting clouds, critters crossing the grass, and a sun that watches what you type. Use it for real math and all is peaceful. Use it for 5 × 5 and the sun laughs at you, mocks you in a speech bubble, and the whole world briefly falls into night.',
         highlights: [
-            'Sun reacts to your math — mocks trivial operations, praises serious ones',
+            'Sun reacts to your math; mocks trivial operations, praises serious ones',
             'Built with React 19 + TypeScript + Vite (Manifest V3, no permissions, no eval)',
             'Full test suite: unit, property, component, and E2E tests against real headless Chrome',
         ],
-        logo: '/judgy-calculator.png',
+        link: 'https://chromewebstore.google.com/detail/judgy-calculator/ihjjkijdejplbnlpmjhiemdjffddpogk',
+        linkText: 'View on Chrome Web Store →',
     },
     {
         title: 'SimpleRAG',
         org: 'Personal Project',
         status: 'Open Source',
         description:
-            'A Python implementation of Retrieval-Augmented Generation for querying personal documents locally. Built with LangGraph orchestration, a Chroma vector database, and Google Gemini for embeddings and generation — answers come straight from your own PDFs, text, and markdown rather than the model\'s training data.',
+            'A Python implementation of RAG for querying personal documents locally. Built with LangGraph orchestration, a Chroma vector database, and Google Gemini for embeddings and generation. Answers come straight from your own PDFs, text, and markdown rather than the model\'s training data.',
         highlights: [
             'Two-phase pipeline: one-time document ingestion + interactive query loop',
             'LangGraph routes questions through retrieve and generate nodes with source attribution',
             'Tracer records token usage and latency metrics to JSON for every run',
         ],
         link: 'https://github.com/psben113/simpleRAG',
+        linkText: 'View on GitHub →',
     },
     {
         title: 'Maze Game',
@@ -83,7 +86,7 @@ function Projects() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    View on GitHub →
+                                    {project.linkText}
                                 </a>
                             )}
                         </div>
